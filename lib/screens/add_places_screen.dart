@@ -6,9 +6,16 @@ import 'package:laag/providers/great_places.dart';
 import 'package:laag/widgets/image_input.dart';
 import 'package:provider/provider.dart';
 
-class AddPlacesScreen extends StatelessWidget {
+class AddPlacesScreen extends StatefulWidget {
   static const ROUTE_NAME = '/places/add';
+
+  @override
+  _AddPlacesScreenState createState() => _AddPlacesScreenState();
+}
+
+class _AddPlacesScreenState extends State<AddPlacesScreen> {
   final _titleController = TextEditingController();
+
   File _selectedImage;
 
   void selectImage(File image) {

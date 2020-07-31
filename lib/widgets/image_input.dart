@@ -32,7 +32,7 @@ class _ImageInputState extends State<ImageInput> {
 
     var directory =  await syspath.getApplicationDocumentsDirectory();
     var filename = path.basename(pickedImage.path);
-    var filePath = "${directory.path}/${filename}";
+    var filePath = "${directory.path}/$filename";
     var savedImage = await _storedImage.copy(filePath);
     this.widget.selectImageHandler(savedImage);
   }
