@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:laag/models/place.dart';
-import 'package:laag/providers/great_places.dart';
-import 'package:laag/widgets/image_input.dart';
 import 'package:provider/provider.dart';
+
+import '../models/place.dart';
+import '../providers/great_places.dart';
+import '../widgets/image_input.dart';
+import '../widgets/location_input.dart';
 
 class AddPlacesScreen extends StatefulWidget {
   static const ROUTE_NAME = '/places/add';
@@ -24,11 +26,9 @@ class _AddPlacesScreenState extends State<AddPlacesScreen> {
 
   void save(BuildContext context) {
     if (_titleController.text == null || _selectedImage == null) {
-      print('fill required fields');
       return;
     }
 
-    print('saving');
     var place = Place(
       id: DateTime.now().toIso8601String(),
       title: _titleController.text,
@@ -60,7 +60,9 @@ class _AddPlacesScreenState extends State<AddPlacesScreen> {
                       decoration: InputDecoration(labelText: 'Title'),
                     ),
                     SizedBox(height: 10),
-                    ImageInput(selectImage)
+                    ImageInput(selectImage),
+                    SizedBox(height: 10),
+                    LocationInput(),
                   ],
                 ),
               ),
